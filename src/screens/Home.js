@@ -8,6 +8,10 @@ const Home = ({navigation}) => {
     <View style={styles.container}>
       <Text>This is Home Screen</Text>
       <Button title="SIGN UP" onPress={() => navigation.navigate('Signup')} />
+      <Button
+        title="StatesDemo"
+        onPress={() => navigation.navigate('StatesDemo')}
+      />
     </View>
   );
 };
