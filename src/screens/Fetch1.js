@@ -28,7 +28,6 @@ const Fetch1 = () => {
 
   return (
     <View style={styles.parentContainer}>
-      {/* TODO:Loading Bar */}
       {isLoading ? (
         <ActivityIndicator size="large" color="#0000ff" />
       ) : (
