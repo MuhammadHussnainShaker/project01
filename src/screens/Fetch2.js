@@ -1,24 +1,29 @@
-import {ActivityIndicator, FlatList, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {
+  ActivityIndicator,
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import React, {useEffect, useState} from 'react';
 
-const Fetch1 = () => {
+const Fetch2 = () => {
   const [posts, setPosts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    async function getPosts() {
-      try {
-        const response = await fetch(
-          'https://jsonplaceholder.typicode.com/posts',
-        );
-        const data = await response.json();
+    const getPosts = () => fetch('https://jsonplaceholder.typicode.com/posts')
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
         setPosts(data);
-      } catch (error) {
-        console.log('Following error occured while fetching data: ', error);
-      } finally {
-        setIsLoading(false)
-      }
-    }
+      })
+      .catch(error =>
+        console.log('Following error occured while fetching data: ', error)
+      )
+      .finally(()=>setIsLoading(false))
+
     const timeoutId = setTimeout(() => {
       getPosts();
     }, 3000);
@@ -47,7 +52,7 @@ const Fetch1 = () => {
   );
 };
 
-export default Fetch1;
+export default Fetch2;
 
 const styles = StyleSheet.create({
   parentContainer: {

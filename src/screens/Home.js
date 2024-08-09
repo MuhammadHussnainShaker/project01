@@ -19,6 +19,7 @@ const Home = ({navigation}) => {
         onPress={() => navigation.navigate('SetInterval')}
       />
       <Button title="Fetch1" onPress={() => navigation.navigate('Fetch1')} />
+      <Button title="Fetch2" onPress={() => navigation.navigate('Fetch2')} />
     </View>
   );
 };
